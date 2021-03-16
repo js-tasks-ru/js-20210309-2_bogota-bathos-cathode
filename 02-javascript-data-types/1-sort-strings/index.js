@@ -5,17 +5,12 @@
  * @returns {string[]}
  */
 export function sortStrings(arr, param = 'asc') {
-  const filterDirection = {
+  const filter = {
     asc: 1,
     desc: -1,
   };
 
-  const collator = Intl.Collator('ru', {
-    sensitivity: 'case',
-    caseFirst: 'upper'
-  });
-
   return [...arr].sort((a, b) => {
-    return filterDirection[param] * collator.compare(a, b);
+    return filter[param] * a.localeCompare(b, ['ru', 'en'], {caseFirst: 'upper'});
   });
 }
