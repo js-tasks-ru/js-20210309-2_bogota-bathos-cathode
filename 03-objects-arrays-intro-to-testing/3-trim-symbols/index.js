@@ -12,7 +12,7 @@ export function trimSymbols(string, size) {
     .reduce((newString, letter) => {
       if (newString.slice(-1) === letter) {
         counter++;
-        if (!size || counter < size) {
+        if (counter < size || !size) {
           return newString + letter;
         }
         return newString;
