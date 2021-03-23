@@ -5,10 +5,10 @@
  */
 export function createGetter(path) {
   return (obj) => {
-    const paths = path.split('.');
+    const pathParts = path.split('.');
     let index = 0;
-    while (obj != null && index < paths.length) {
-      obj = obj[paths[index++]];
+    while (obj != null && index < pathParts.length) {
+      obj = obj[pathParts[index++]];
     }
     return obj;
   };
